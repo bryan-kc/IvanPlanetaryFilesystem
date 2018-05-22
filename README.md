@@ -27,7 +27,32 @@ through the network. We have also implemented a publishing and subscription
 system that allows for end users to subscribe to a reference,
 and listen to messages that are published to the reference on a channel.
 
-## Commands
+You can read more about the design of the project here: [DESIGN.md](docs/DESIGN.md)
+
+## Instructions
+
+- Git clone or copy the project code into a folder in your $GOPATH/ .
+
+- Install [protobuf](https://github.com/google/protobuf/releases) (Google's Protocol
+Buffer compiler).
+
+- Run `make deps` inside of the project to install all of the go dependencies.
+
+- Run `make` inside of the project to build the command line client and server binaries and run the
+tests.
+
+### Running
+- To launch a node you can run `./proj2 -bind :8181`, second node should be run as
+`./proj2 -bind :8282 -bootstrap localhost:8181 -path tmp/node2`.
+
+- Command line interface can be run via `./ipfs localhost:8181` to connect to the
+first node. Run `help` to find out more about those commands.
+
+- There's a web interface also available at the node address (ex
+https://localhost:8181) which runs on every node.
+
+
+## CLI Commands
 
 The Ivan Planetary File System’s command line client has 11 commands in
 total for the user to interact with an IPFS node.
@@ -94,28 +119,3 @@ If a message is published to this reference, they will be seen on this channel.
 - `quit`
 
 Disconnects from this node and exits the Ivan Planetary File System.
-
-
-## Instructions for Running
-*To be improved/cleaned at a later time*
-```
-Special instructions for compiling/running the code should be included in this file.
-
-Git clone or copy the project code into a folder in your $GOPATH/ directory.
-
-To run and install this code you'll need to install protoc (Google's Protocol
-Buffer compiler).
-
-You can then run `make deps` to install all of the go dependencies and then
-`make` to build the command line client and server binaries as well as run the
-tests.
-
-To launch a node you can run `./proj2 -bind :8181`, second node should be run as
-`./proj2 -bind :8282 -bootstrap localhost:8181 -path tmp/node2`.
-
-Command line interface can be run via `./ipfs localhost:8181` to connect to the
-first node. Run `help` to find out more about those commands.
-
-There's a web interface also available at the node address (ex
-https://localhost:8181) which runs on every node.
-```
